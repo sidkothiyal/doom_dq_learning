@@ -1,6 +1,7 @@
 from vizdoom import *
 import random
 import time
+from preprocess import Preprocess
 
 
 class Doom:
@@ -47,6 +48,7 @@ class Doom:
     def get_environment_state(self):
         state = self.game_environment.get_state()
         img = state.screen_buffer
+        img = Preprocess(img).image
         game_vars = state.game_variables
 
         return img, game_vars

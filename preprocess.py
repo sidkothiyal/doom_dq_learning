@@ -7,6 +7,8 @@ class Preprocess:
     def __init__(self, img):
         if type(img) is not np.ndarray:
             self.image = np.array(Image.open(img))
+        else:
+            self.image = img
 
         self.process_image()
 
@@ -17,7 +19,7 @@ class Preprocess:
         self.image = self.image/255.0
 
     def resize(self):
-        self.image = transform.resize(self.image, [175, 350, 3])
+        self.image = transform.resize(self.image, [64, 128])
 
     def process_image(self):
         self.crop()
